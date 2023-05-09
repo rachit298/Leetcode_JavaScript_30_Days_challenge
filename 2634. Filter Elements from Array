@@ -1,0 +1,20 @@
+/**
+ * @param {number[]} arr
+ * @param {Function} fn
+ * @return {number[]}
+ */
+var filter = function (arr, fn) {
+
+    let a = [];
+
+    for (let index = 0; index < arr.length; index++) {
+
+        if (fn(arr[index], index)) {
+            a.push(arr[index]);
+        }
+
+    }
+
+    return a;
+
+};
