@@ -1,0 +1,27 @@
+/**
+ * @param {any} o1
+ * @param {any} o2
+ * @return {boolean}
+ */
+var areDeeplyEqual = function (o1, o2) {
+
+    //check memory refrence
+    if (o1 === o2) return true;
+
+    // check types
+    if (typeof o1 != 'object' || typeof o2 != 'object') return false;
+
+    //check is both are arrays
+    if (Array.isArray(o1) !== Array.isArray(o2)) return false;
+
+    //check for no. of keys
+    if (Object.keys(o1).length != Object.keys(o2).length) return false;
+
+    //compare each key's values using for-in to loop over objects
+    for (const key in o1) {
+        if (!areDeeplyEqual(o1[key], o2[key])) return false;
+    }
+
+    //all condition passed
+    return true;
+};
